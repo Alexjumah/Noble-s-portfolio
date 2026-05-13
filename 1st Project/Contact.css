@@ -1,0 +1,402 @@
+/* ============================================
+   CONTACT PAGE SPECIFIC STYLES
+   ============================================ */
+
+.contact-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 80px);
+    position: relative;
+    z-index: 1;
+    align-items: center;
+}
+
+/* ===== LEFT PANEL ===== */
+.contact-info-panel {
+    padding: 60px 60px 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    animation: fadeInLeft 1s ease-out 0.2s both;
+}
+
+.info-header .tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(0, 212, 170, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    border-radius: 20px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.info-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--text-light);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, #fff 50%, var(--primary) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+}
+
+.info-header .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.method-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(10px);
+}
+
+.method-card:hover {
+    border-color: rgba(0, 212, 170, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 212, 170, 0.1);
+    transform: translateX(8px);
+}
+
+.method-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.2), rgba(0, 212, 170, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.method-details h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.method-details a,
+.method-details span {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.method-details a:hover {
+    color: var(--primary);
+}
+
+.social-section {
+    margin-top: 10px;
+}
+
+.social-section p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.social-btn:hover::before {
+    opacity: 0.15;
+}
+
+.social-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 0 8px 25px rgba(0, 212, 170, 0.2);
+}
+
+.social-btn img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(100%) brightness(1.5);
+    transition: filter 0.3s ease;
+}
+
+.social-btn:hover img {
+    filter: grayscale(0%) brightness(1);
+}
+
+/* ===== RIGHT PANEL — FORM ===== */
+.form-panel {
+    padding: 60px 80px 60px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInRight 1s ease-out 0.4s both;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 16px 0 8px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-bottom-color: var(--primary);
+}
+
+.input-group label {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    color: var(--text-muted);
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: -8px;
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.input-line {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: all 0.4s ease;
+}
+
+.input-group input:focus ~ .input-line,
+.input-group textarea:focus ~ .input-line {
+    left: 0;
+    width: 100%;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 212, 170, 0.4);
+}
+
+.submit-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover svg {
+    transform: translate(3px, -3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .contact-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .contact-info-panel {
+        padding: 40px 30px;
+        text-align: center;
+        align-items: center;
+    }
+    .info-header h1 {
+        font-size: 36px;
+    }
+    .info-header .subtitle {
+        max-width: 100%;
+    }
+    .contact-methods {
+        max-width: 500px;
+        width: 100%;
+    }
+    .method-card:hover {
+        transform: translateX(0) translateY(-4px);
+    }
+    .social-section {
+        text-align: center;
+    }
+    .form-panel {
+        padding: 0 30px 40px;
+    }
+    .form-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-header h1 {
+        font-size: 28px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .form-container {
+        padding: 25px 20px;
+    }
+}
