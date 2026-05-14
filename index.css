@@ -1,4 +1,3 @@
-
 .hero-showcase {
     min-height: 100vh;
     display: flex;
@@ -6,7 +5,9 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 40px;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content {
@@ -14,6 +15,9 @@
     z-index: 1;
     text-align: center;
     max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .hero-tag {
@@ -51,6 +55,9 @@
     max-width: 600px;
     margin: 0 auto 40px auto;
     text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .hero-desc strong {
@@ -94,6 +101,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 60vh;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .split-left,
@@ -102,6 +111,8 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 60px;
+    width: 100%;
+    box-sizing: border-box;
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -204,8 +215,11 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .split-right {
-        padding: 60px 30px;
-        min-height: 50vh;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .hero-name {
         font-size: clamp(48px, 12vw, 100px);
