@@ -400,3 +400,13 @@
         padding: 25px 20px;
     }
 }
+
+/* Centered CTA buttons below contact section */
+.btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 40px;
+    flex-wrap: wrap;
+}
