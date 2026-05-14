@@ -197,10 +197,15 @@
 @media (max-width: 1024px) {
     .split-section {
         grid-template-columns: 1fr;
+        min-height: auto;
     }
     .split-left {
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .split-right {
+        padding: 60px 30px;
+        min-height: 50vh;
     }
     .hero-name {
         font-size: clamp(48px, 12vw, 100px);
@@ -208,6 +213,13 @@
 }
 
 @media (max-width: 768px) {
+    .hero-name {
+        font-size: clamp(40px, 12vw, 60px);
+    }
+    .hero-desc {
+        font-size: 16px;
+        padding: 0 20px;
+    }
     .hero-showcase {
         padding: 20px;
     }
