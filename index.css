@@ -1,5 +1,8 @@
+/* ============================================
+   HOMEPAGE SPECIFIC STYLES
+   ============================================ */
 .hero-showcase {
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,6 +21,9 @@
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-tag {
@@ -56,7 +62,6 @@
     margin: 0 auto 40px auto;
     text-align: center;
     width: 100%;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -110,7 +115,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px 60px;
+    padding: 80px 40px;
     width: 100%;
     box-sizing: border-box;
     text-decoration: none;
@@ -214,31 +219,43 @@
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .split-right {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
     .hero-name {
         font-size: clamp(48px, 12vw, 100px);
     }
 }
 
 @media (max-width: 768px) {
-    .hero-name {
-        font-size: clamp(40px, 12vw, 60px);
+    .hero-showcase,
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 15px;
+        padding-right: 15px;
     }
+    
+    .hero-name {
+        font-size: clamp(40px, 15vw, 70px);
+    }
+    
     .hero-desc {
         font-size: 16px;
-        padding: 0 20px;
+        padding: 0;
     }
-    .hero-showcase {
-        padding: 20px;
-    }
+    
     .split-left,
     .split-right {
-        padding: 60px 30px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 60px 20px;
+    }
+    
+    .split-title {
+        font-size: clamp(32px, 10vw, 60px);
+    }
+    
+    .split-desc {
+        max-width: 100%;
     }
 }
