@@ -3,10 +3,10 @@
    ============================================ */
 
 :root {
-    --primary: #00d4aa;
-    --primary-dark: #00b894;
-    --secondary: #1a1a2e;
-    --accent: #a2ee84;
+    --primary: #79fde3;
+    --primary-dark: #61b2b6;
+    --secondary: #0505a5;
+    --accent: #01d46b;
     --text-light: #e8e8e8;
     --text-muted: #a0a0a0;
     --bg-dark: #092b75;
@@ -196,7 +196,7 @@ body::after {
     color: var(--text-muted);
     padding: 6px 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 11px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 30px;
     transition: var(--transition-smooth);
@@ -321,21 +321,22 @@ body::after {
 
 .footer-top {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;           /* Changed: horizontal layout */
+    align-items: flex-end;         /* Changed: align bottoms of columns */
+    justify-content: space-between; /* Changed: left and center positioning */
     width: 100%;
-    max-width: 100%;
+    max-width: 1200px;            /* Added: constrain width for better layout */
     gap: 30px;
     box-sizing: border-box;
 }
 
 .footer-nav {
-    display: flex;
+    display: flex;                /* Fixed: was display:contents */
     flex-direction: column;
     gap: 12px;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;      /* Changed: left-align items */
+    text-align: left;
+    flex: 0 0 auto;               /* Added: don't grow or shrink */
 }
 
 .footer-nav a {
@@ -371,9 +372,10 @@ body::after {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    align-items: center;
+    align-items: center;          /* Centered column */
     padding: 0;
-    width: 100%;
+    flex: 1;                      /* Added: take remaining space */
+    justify-content: flex-end;      /* Added: push content to bottom */
 }
 
 .footer-links a {
@@ -409,8 +411,9 @@ body::after {
 .footer-text {
     color: var(--text-muted);
     font-size: 13px;
-    text-align: right;
+    text-align: center;           /* Changed: center for full-width footer */
     opacity: 0.7;
+    width: 100%;
 }
 
 .signature {

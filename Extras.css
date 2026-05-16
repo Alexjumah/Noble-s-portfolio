@@ -79,12 +79,18 @@
     color: var(--primary);
     margin-bottom: 50px;
 }
-
+.education-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;           /* Space between cards */
+}
 .education-card {
     background: var(--bg-card);
-    border: 1px solid rgba(0, 212, 170, 0.15);
+    border: 1px solid rgba(5, 240, 193, 0.15);
     border-radius: 20px;
     padding: 40px;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     transition: var(--transition-smooth);
@@ -243,14 +249,14 @@
     height: 200px;
     object-fit: cover;
     border-radius: 16px;
-    border: 3px solid rgba(255, 255, 255, 0.05);
+    border: 3px solid rgba(9, 199, 233, 0.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     transition: var(--transition-smooth);
 }
 
 .image-box img:hover {
     transform: scale(1.05) rotate(2deg);
-    border-color: rgba(0, 212, 170, 0.3);
+    border-color: rgb(0, 221, 250);
 }
 
 .experience-item {

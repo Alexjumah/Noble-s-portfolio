@@ -88,7 +88,7 @@
     height: 520px;
     object-fit: cover;
     border-radius: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
+    border: 3px solid rgb(3, 209, 245);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 170, 0.1);
     transition: var(--transition-smooth);
     position: relative;
