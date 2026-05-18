@@ -337,6 +337,7 @@ body::after {
     align-items: flex-start;      /* Changed: left-align items */
     text-align: left;
     flex: 0 0 auto;               /* Added: don't grow or shrink */
+    min-width: 160px;           /* Prevents layout shift */
 }
 
 .footer-nav a {
@@ -347,6 +348,8 @@ body::after {
     transition: var(--transition-smooth);
     position: relative;
     padding-left: 0;
+    display: inline-block;        /* Added: ensures padding affects layout */    
+    white-space: nowrap;        /* Prevents text wrapping */
 }
 
 .footer-nav a::before {

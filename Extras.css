@@ -105,6 +105,7 @@
 }
 
 .card-header {
+    color:rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -245,8 +246,6 @@
 }
 
 .image-box img {
-    width: 200px;
-    height: 200px;
     object-fit: cover;
     border-radius: 16px;
     border: 3px solid rgba(9, 199, 233, 0.05);
@@ -273,8 +272,58 @@
     font-weight: 700;
 }
 
+/* ===== EXPERIENCE DETAILS GLOW HOVER ===== */
 .details {
     flex: 1;
+    padding: 25px 30px;
+    border-radius: 16px;
+    border: 2px solid rgba(0, 212, 170, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top accent line */
+.details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect — glows brighter like images */
+.details:hover {
+    border-color: rgba(0, 212, 170, 0.4);
+    box-shadow: 0 0 30px rgba(0, 212, 170, 0.15),
+                0 0 60px rgba(0, 212, 170, 0.08),
+                inset 0 0 20px rgba(0, 212, 170, 0.03);
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.details:hover::before {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Inner content stays readable */
+.details p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.details:hover p {
+    color: var(--text-light);
 }
 
 .details h3 {
@@ -288,13 +337,11 @@
     font-weight: 600;
     color: var(--text-muted);
     font-size: 0.95em;
+    transition: color 0.3s ease;
 }
 
-.details p {
-    margin: 0;
-    line-height: 1.7;
-    color: var(--text-muted);
-    font-size: 0.95em;
+.details:hover h4 {
+    color: var(--primary);
 }
 
 .back-home {
