@@ -8,11 +8,11 @@
     --secondary: #0505a5;
     --accent: #01d46b;
     --text-light: #e8e8e8;
-    --text-muted: #a0a0a0;
+    --text-muted: #fffdfd;
     --bg-dark: #092b75;
     --bg-card: rgba(15, 15, 15, 0.03);
     --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    --neon-bright: #13dceb;
+    --neon-bright: #00eeff;
 }
 
 * {
@@ -115,6 +115,36 @@ body::after {
     100% { background-position: 200% center; }
 }
 
+/* Animation setup */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+   /* ===== SLIDE IN DIAGONAL + FLOAT ===== */
+@keyframes slideInDiagonal {
+    from {
+        opacity: 0;
+        transform: translateX(-60px) translateY(40px) rotate(-3deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+}
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
 /* ===== GLASSMORPHISM NAVIGATION ===== */
 .navbar {
     display: flex;

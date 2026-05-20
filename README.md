@@ -1,2 +1,3 @@
 # Noble's-portfolio
-Contains the html and css of all the pages of my portfolio
+
+Contains the Html, CSS and Javascript pages of my portfolio website.

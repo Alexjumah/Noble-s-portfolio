@@ -39,8 +39,19 @@
                 <a href="index.html" title="Go back to the Homepage" class="cta-btn">Back to Home</a>
             </div>
         </div>
-        <div class="image-container">
-            <img src="Pics/IMG-20260502-WA0018.jpg" width="500" height="600" alt="A picture of Noble">
+        <div class="image-container card-gallery" id="cardGallery">
+            <div class="card-stack">
+                <img src="Pics/IMG-20260502-WA0018.jpg" alt="Noble - Photo 1" class="gallery-card active" data-index="0">
+                <img src="Pics/IMG-20260502-WA0012.jpg" alt="Noble - Photo 2" class="gallery-card" data-index="1">
+                <img src="Pics/IMG-20260502-WA0017.jpg" alt="Noble - Photo 3" class="gallery-card" data-index="2">
+                <img src="Pics/IMG-20260502-WA0016.jpg" alt="Noble - Photo 4" class="gallery-card" data-index="3">
+            </div>
+            <div class="card-indicator">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
     </section>
 
@@ -56,7 +67,7 @@
             <div class="footer-links">
                 <a href="https://www.instagram.com/alexxjumah/" target="_blank" rel="noopener" title="Go to my Instagram profile">Instagram</a>
                 <a href="https://www.linkedin.com/in/noble-odwallo-7053393b3/" target="_blank" rel="noopener" title="Go to my LinkedIn profile">LinkedIn</a>
-                <a href="mailto:nobleodwallo@gmail.com" target="_blank" rel="noopener" title="Send me an email">Email</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nobleodwallo@gmail.com&su=Hello" target="_blank" rel="noopener" title="Send me an email via Gmail">Email</a>
             </div>
             </div>
                 <div class="signature">
@@ -67,6 +78,48 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.getElementById('cardGallery');
+            const stack = gallery.querySelector('.card-stack');
+            const dots = gallery.querySelectorAll('.dot');
 
+            gallery.addEventListener('click', function() {
+                const cards = stack.querySelectorAll('.gallery-card');
+                const activeCard = cards[0];
+
+                // INSTANT: Move to back immediately, no animation class
+                stack.appendChild(activeCard);
+
+                // Update dots instantly
+                const currentIndex = parseInt(activeCard.dataset.index);
+                const newIndex = parseInt(cards[1].dataset.index);
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === newIndex);
+                });
+            });
+
+            // Click on dots to jump to specific card
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const cards = Array.from(stack.querySelectorAll('.gallery-card'));
+                    const currentFirst = parseInt(cards[0].dataset.index);
+                    const diff = (index - currentFirst + cards.length) % cards.length;
+                    
+                    // INSTANT: Move cards immediately
+                    for (let i = 0; i < diff; i++) {
+                        stack.appendChild(cards[i]);
+                    }
+                    
+                    // Update dots
+                    dots.forEach((d, i) => {
+                        d.classList.toggle('active', i === index);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

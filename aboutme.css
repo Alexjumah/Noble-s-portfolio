@@ -50,12 +50,79 @@
     margin-bottom: 30px;
 }
 
-.about-hero .image-container {
+/* ===== CARD SPREAD GALLERY - HORIZONTAL ===== */
+.card-gallery {
     position: relative;
+    width: 420px;
+    height: 520px;
+    perspective: 1000px;
+    cursor: pointer;
     animation: fadeInRight 1.2s ease-out 0.5s both;
 }
 
-.about-hero .image-container::before {
+.card-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.gallery-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 420px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid rgb(3, 209, 245);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 170, 0.1);
+    /* Only hover transition, no position transition */
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+/* HORIZONTAL spread - instant snap, no transition on transform */
+.gallery-card:nth-child(1) {
+    transform: translateX(0) scale(1) rotate(0deg);
+    z-index: 4;
+    opacity: 1;
+}
+
+.gallery-card:nth-child(2) {
+    transform: translateX(25px) scale(0.95) rotate(2deg);
+    z-index: 3;
+    opacity: 0.85;
+}
+
+.gallery-card:nth-child(3) {
+    transform: translateX(50px) scale(0.9) rotate(-1deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.gallery-card:nth-child(4) {
+    transform: translateX(75px) scale(0.85) rotate(3deg);
+    z-index: 1;
+    opacity: 0.55;
+}
+
+/* HOVER: instant response */
+.gallery-card:hover {
+    transform: translateX(-15px) scale(1.05) rotate(-3deg) !important;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.6), 
+        0 0 60px rgba(0, 212, 170, 0.3),
+        0 0 100px rgba(0, 212, 170, 0.1);
+    z-index: 10 !important;
+    opacity: 1 !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* Decorative borders */
+.card-gallery::before {
     content: '';
     position: absolute;
     top: -15px;
@@ -67,9 +134,10 @@
     opacity: 0.3;
     animation: float 4s ease-in-out infinite;
     pointer-events: none;
+    z-index: 5;
 }
 
-.about-hero .image-container::after {
+.card-gallery::after {
     content: '';
     position: absolute;
     top: 15px;
@@ -81,23 +149,33 @@
     opacity: 0.2;
     animation: float 4s ease-in-out infinite reverse;
     pointer-events: none;
+    z-index: 5;
 }
 
-.about-hero .image-container img {
-    width: 420px;
-    height: 520px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 3px solid rgb(3, 209, 245);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 170, 0.1);
-    transition: var(--transition-smooth);
-    position: relative;
-    z-index: 2;
+/* Dot indicators */
+.card-indicator {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
 }
 
-.about-hero .image-container img:hover {
-    transform: scale(1.03) rotate(1deg);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 212, 170, 0.2);
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    transform: scale(1.3);
 }
 
 .btn-group {
