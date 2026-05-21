@@ -99,8 +99,8 @@
 }
 
 .education-card:hover {
-    border-color: rgba(0, 212, 170, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 212, 170, 0.1);
+    border-color: rgba(203, 226, 119, 0.479);
+    box-shadow: 0 20px 40px rgba(0, 212, 170, 0.473);
     transform: translateY(-5px);
 }
 
@@ -128,7 +128,13 @@
     font-size: 0.9em;
     font-weight: 600;
 }
-
+.badge:hover {
+    background: rgba(4, 241, 241, 0.699);
+    border-color: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px var(--primary);
+    transform: scale(1.05);
+}
 .education-card h3 {
     font-size: 1.1em;
     color: var(--text-muted);
@@ -171,13 +177,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(1, 33, 122, 0.281);
     border: 1px solid rgba(0, 212, 170, 0.1);
     border-radius: 10px;
     padding: 10px 15px;
     color: var(--text-light);
     font-size: 0.9em;
+    transition: all 0.3s ease;
+    cursor: default;
 }
+
+/* Hover: lime background and border glow */
+.subject-item:hover {
+    background: rgba(162, 238, 132, 0.15);        /* Lime tint */
+    border-color: var(--accent);                   /* Your lime accent color */
+    box-shadow: 0 0 15px rgba(162, 238, 132, 0.3), 
+                inset 0 0 10px rgba(162, 238, 132, 0.05);
+    transform: translateX(5px);
+} 
 
 .grade-badge {
     background: var(--primary);
@@ -186,8 +203,14 @@
     border-radius: 12px;
     font-weight: 700;
     font-size: 0.85em;
+    transition: all 0.3s ease;
 }
-
+.grade-badge:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px rgba(162, 238, 132, 0.8);
+    transform: scale(1.15);
+}
 /* ===== EXPERIENCE ===== */
 .experience-section {
     padding: 80px 10%;
@@ -229,6 +252,7 @@
     gap: 40px;
     align-items: center;
     padding: 60px 0;
+    position: relative;
     animation: float 4s ease-in-out infinite;
 }
 
@@ -317,6 +341,7 @@
     display: flex;
     gap: 20px;
     flex: 1;
+    align-items: center;
 }
 
 .year {
@@ -325,6 +350,11 @@
     font-size: 16px;
     color: var(--primary);
     font-weight: 700;
+    text-align: center;
+    /* Remove any top/bottom margins that push it up */
+    margin: 0;
+    /* Ensure it centers with flex parent */
+    align-self: center;
 }
 
 /* ===== EXPERIENCE DETAILS GLOW HOVER ===== */
@@ -333,7 +363,7 @@
     padding: 25px 30px;
     border-radius: 16px;
     border: 2px solid rgba(0, 212, 170, 0.08);
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(1, 33, 122, 0.281);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: var(--transition-smooth);
     position: relative;

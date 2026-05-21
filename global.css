@@ -4,7 +4,7 @@
 
 :root {
     --primary: #79fde3;
-    --primary-dark: #61b2b6;
+    --primary-dark: #04f3ab;
     --secondary: #0505a5;
     --accent: #01d46b;
     --text-light: #e8e8e8;
@@ -154,7 +154,7 @@ body::after {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(10, 10, 15, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
