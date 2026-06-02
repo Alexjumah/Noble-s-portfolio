@@ -224,11 +224,15 @@
         min-height: auto;
         gap: 30px;
         padding: 25px 16px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .about-hero .text-container {
         max-width: 100%;
         animation: none;
+        align-self: center;
     }
 
     .about-hero .text-container h2 {
