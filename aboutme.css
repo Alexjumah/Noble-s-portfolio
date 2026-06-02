@@ -218,3 +218,95 @@
         height: 350px;
     }
 }
+
+@media (max-width: 480px) {
+    .about-hero {
+        min-height: auto;
+        gap: 30px;
+        padding: 25px 16px;
+    }
+
+    .about-hero .text-container {
+        max-width: 100%;
+        animation: none;
+    }
+
+    .about-hero .text-container h2 {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .about-hero .text-container h2::after {
+        width: 40px;
+        bottom: -8px;
+    }
+
+    .about-hero .text-container p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .about-hero .text-container p:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .card-gallery {
+        width: 100%;
+        height: 300px;
+        max-width: 280px;
+        margin: 0 auto;
+        animation: none;
+    }
+
+    .gallery-card {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 16px;
+        border: 2px solid rgb(3, 209, 245);
+    }
+
+    .gallery-card:nth-child(1) {
+        transform: translateX(0) scale(1) rotate(0deg) !important;
+    }
+
+    .gallery-card:nth-child(2) {
+        transform: translateX(15px) scale(0.9) rotate(1deg) !important;
+    }
+
+    .gallery-card:nth-child(3) {
+        transform: translateX(30px) scale(0.8) rotate(-1deg) !important;
+    }
+
+    .gallery-card:nth-child(4) {
+        transform: translateX(45px) scale(0.7) rotate(2deg) !important;
+    }
+
+    .card-gallery::before,
+    .card-gallery::after {
+        display: none;
+    }
+
+    .card-indicator {
+        bottom: -35px;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn-group .cta-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 12px;
+        margin: 0;
+    }
+}

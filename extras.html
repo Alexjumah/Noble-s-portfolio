@@ -18,6 +18,11 @@
             <img src="Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble's Logo" width="50" height="50">
             <p class="nav-name">Noble</p>
         </a>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-links">
             <a href="index.html" title="Go to the Homepage" class="nav-btn">Home</a>
             <a href="aboutme.html" title="Learn more about me" class="nav-btn">About Me</a>
@@ -37,10 +42,10 @@
     </section>
 
     <!-- Education -->
-    <section class="education-section" id="education" style="background-color: rgb(5, 5, 126);">
+    <section class="education-section" id="education">
         <h1 class="section-title">Education</h1>
         <div class="education-cards-wrapper">
-            <div class="education-card" style="background-color: rgba(6, 132, 155, 0.493);">
+            <div class="education-card">
                 <div class="card-header">
                     <h2>Tender Care Junior Academy</h2>
                     <span class="badge">2021</span>
@@ -61,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="education-card" style="background-color: rgba(6, 132, 155, 0.493);">
+            <div class="education-card">
                 <div class="card-header">
                     <h2>Starehe Boys' Centre and School</h2>
                     <span class="badge">2025</span>
@@ -97,7 +102,7 @@
                 </div>
                 <div class="experience-item">
                     <div class="year">2025</div>
-                    <div class="details" style="background-color: rgb(7, 39, 138);">
+                    <div class="details">
                         <h3><a href="https://stareheboyscentre.org" title="Click to Visit the Starehe Boys' Center and School Website to learn more about the school" target="_blank" rel="noopener">Chess Captain</a></h3>
                         <h4>Of the Chess Team - Starehe Boys' High School</h4>
                         <p>I led the school chess team by organizing practice sessions and helping players improve their strategies. I guided teammates during competitions, made decisions on team lineups, and kept everyone focused and motivated. This role strengthened my leadership and decision-making skills, especially under pressure.</p>
@@ -112,7 +117,7 @@
                 </div>
                 <div class="experience-item">
                     <div class="year">2025</div>
-                    <div class="details" style="background-color: rgb(7, 39, 138);">
+                    <div class="details">
                         <h3><a href="https://s1.chess-results.com/tnr954959.aspx?lan=1&SNode=S0&SelSNr=13" title="Click to View the details of the 2025 Africa Chess Championship Tournament" target="_blank" rel="noopener">Africa Chess Championship Participant</a></h3>
                         <h4>At Pride Inn Hotel</h4>
                         <p>I competed against strong players from different regions, which pushed me to think more critically and adapt quickly. I prepared by studying tactics and practicing regularly. This experience improved my focus, patience, and ability to stay calm in competitive environments.</p>
@@ -127,7 +132,7 @@
                 </div>
                 <div class="experience-item">
                     <div class="year">2023-2025</div>
-                    <div class="details" style="background-color: rgb(7, 39, 138);">
+                    <div class="details">
                         <h3><a href="https://stareheboyscentre.org" title="Click to Visit the Starehe Boys' Center and School Website to learn more about the school" target="_blank" rel="noopener">School Prefect</a></h3>
                         <h4>At Starehe Boys' Centre and School</h4>
                         <p>I was responsible for maintaining order and supporting both students and teachers. I helped enforce school rules, listened to student concerns, and acted as a link between students and the administration. This role taught me responsibility, fairness, and how to handle authority with respect.</p>
@@ -142,7 +147,7 @@
                 </div>
                 <div class="experience-item">
                     <div class="year">2025</div>
-                    <div class="details" style="background-color: rgb(7, 39, 138);">
+                    <div class="details">
                         <h3><a href="https://kenyamusicfestival.com" title="Click to Visit the Kenya Music Festival Website" target="_blank" rel="noopener">Kenya Music Festivals (Piano)</a></h3>
                         <h4>National Level (Meru)</h4>
                         <p>I practiced consistently to prepare for performances and competed at the National level. Playing the piano helped me develop discipline, attention to detail, and confidence when performing in front of an audience.</p>
@@ -157,7 +162,7 @@
                 </div>
                 <div class="experience-item">
                     <div class="year">2023-2025</div>
-                    <div class="details" style="background-color: rgb(7, 39, 138);">
+                    <div class="details">
                         <h3><a href="https://stareheboyscentre.org" title="Click to Visit the Starehe Boys' Center and School Website to learn more about the school" target="_blank" rel="noopener">Basketball — Team Player & Competitor </a></h3>
                         <h4>Sub-County Level</h4>
                         <p>I represented my school in basketball at the Sub-County level, where I developed strong teamwork, communication, and discipline. Playing as part of a team taught me how to trust others, coordinate under pressure, and push through challenges together. These skills translate directly into collaborative development work.</p>
@@ -196,6 +201,19 @@
             <div class="signature-line"></div>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('mobile-open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('mobile-open');
+            });
+        });
+    </script>
 
 </body>
 </html>

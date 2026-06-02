@@ -18,6 +18,11 @@
             <img src="Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble's Logo" width="50" height="50">
             <p class="nav-name">Noble</p>
         </a>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-links">
             <a href="index.html" title="Go to the Homepage" class="nav-btn active">Home</a>
             <a href="aboutme.html" title="Learn more about me" class="nav-btn">About Me</a>
@@ -81,6 +86,19 @@
             <div class="signature-line"></div>
         </div>
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('mobile-open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('mobile-open');
+            });
+        });
+    </script>
 
 </body>
 </html>

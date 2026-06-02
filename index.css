@@ -265,3 +265,60 @@
         max-width: 100%;
     }
 }
+
+@media (max-width: 480px) {
+    .hero-showcase {
+        min-height: calc(100vh - 54px);
+        padding: 30px 15px;
+    }
+
+    .hero-tag {
+        font-size: 12px;
+        letter-spacing: 4px;
+        margin-bottom: 16px;
+    }
+
+    .hero-name {
+        font-size: clamp(32px, 12vw, 50px);
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+
+    .split-section {
+        min-height: auto;
+    }
+
+    .split-left,
+    .split-right {
+        padding: 40px 15px;
+        min-height: auto;
+    }
+
+    .split-label {
+        font-size: 12px;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+    }
+
+    .split-title {
+        font-size: clamp(28px, 10vw, 45px);
+        margin-bottom: 15px;
+    }
+
+    .split-desc {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .split-link {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}

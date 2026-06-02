@@ -140,14 +140,16 @@ body::after {
     padding: 12px 50px;
     position: fixed;
     top: 0;
-    width: 100%;
-    max-width: 100%;
+    left: 0;
+    right: 0;
+    width: 100vw;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1000;
     animation: fadeInDown 0.8s ease-out;
+    box-sizing: border-box;
 }
 
 .nav-logo-link {
@@ -518,6 +520,41 @@ body::after {
     color: #fff;
 }
 
+/* ===== HAMBURGER MENU ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 6px;
+    padding: 8px;
+}
+
+.menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-links.mobile-open {
+    display: flex !important;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .footer-top {
@@ -540,59 +577,72 @@ body::after {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 10px 12px;
-        flex-direction: column;
+        padding: 10px 16px;
         gap: 10px;
     }
 
     .nav-logo {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
     }
 
     .nav-name {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 
     .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         width: 100%;
-        flex-wrap: wrap;
-        justify-content: center;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 12px;
         gap: 6px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        z-index: 999;
     }
 
     .nav-btn {
-        flex: 1 1 calc(50% - 6px);
-        min-width: 0;
-        max-width: 220px;
-        padding: 8px 10px;
-        font-size: 12px;
-        line-height: 1.25;
-        text-align: center;
-        white-space: normal;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 13px;
+        text-align: left;
+        white-space: nowrap;
     }
 
     body {
-        padding-top: 150px;
+        padding-top: 70px;
     }
 
     .footer {
-        padding: 34px 16px;
+        padding: 30px 16px;
+        gap: 20px;
     }
 
     .footer-top {
         width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
     .footer-nav,
     .footer-links {
         width: 100%;
         align-items: center;
+        gap: 10px;
     }
 
     .footer-nav a,
     .footer-links a {
-        max-width: 100%;
         white-space: normal;
         text-align: center;
     }
@@ -608,18 +658,79 @@ body::after {
     .signature {
         flex-direction: column;
         gap: 12px;
-        padding-top: 20px;
+        padding-top: 15px;
+        width: 100%;
     }
 
     .signature-line {
-        max-width: 220px;
+        max-width: 100%;
     }
 
     .signature p {
         max-width: 100%;
         white-space: normal;
         text-align: center;
-        line-height: 1.6;
-        letter-spacing: 1px;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
+        font-size: 12px;
+    }
+
+    .cta-btn {
+        padding: 12px 24px;
+        font-size: 12px;
+        margin: 10px 6px 0 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 12px;
+    }
+
+    .nav-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .nav-name {
+        font-size: 16px;
+        display: none;
+    }
+
+    .nav-links {
+        top: 54px;
+        padding: 10px 8px;
+    }
+
+    .nav-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    body {
+        padding-top: 54px;
+    }
+
+    .footer {
+        padding: 20px 12px;
+        gap: 15px;
+    }
+
+    .footer-top {
+        gap: 15px;
+    }
+
+    .footer-heading {
+        font-size: 13px;
+    }
+
+    .footer-nav a,
+    .footer-links a {
+        font-size: 12px;
+    }
+
+    .signature p {
+        font-size: 11px;
+        letter-spacing: 0px;
     }
 }

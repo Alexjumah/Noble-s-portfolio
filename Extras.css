@@ -71,6 +71,7 @@
     padding: 80px 10%;
     position: relative;
     z-index: 1;
+    background-color: rgb(5, 5, 126);
 }
 
 .education-section .section-title {
@@ -96,6 +97,10 @@
     transition: var(--transition-smooth);
     backdrop-filter: blur(10px);
     animation: float 5s ease-in-out infinite;
+}
+
+.details {
+    background-color: rgb(7, 39, 138);
 }
 
 .education-card:hover {
@@ -528,5 +533,159 @@
     }
     .education-card {
         padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-intro {
+        height: calc(100vh - 54px);
+        margin-top: 0;
+    }
+
+    .hero-tagline {
+        font-size: 0.85em;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .hero-title {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        text-shadow: 0 0 15px rgba(0, 212, 170, 0.2);
+    }
+
+    .hero-subtitle {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+
+    .education-section,
+    .experience-section {
+        padding: 40px 16px;
+    }
+
+    .education-section > h1,
+    .experience-section > h1 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .education-section > h1::after,
+    .experience-section > h1::after {
+        width: 40px;
+        bottom: -10px;
+    }
+
+    .education-card {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .card-header h2 {
+        font-size: 1.1em;
+    }
+
+    .card-header .badge {
+        font-size: 0.75em;
+        padding: 4px 10px;
+    }
+
+    .education-card h3 {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+
+    .grade {
+        font-size: 0.9em;
+        margin: 10px 0;
+    }
+
+    .subjects {
+        margin-top: 15px;
+        padding-top: 15px;
+    }
+
+    .subjects h4 {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .subject-item {
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+
+    .experience-row {
+        padding: 30px 0;
+        gap: 15px;
+    }
+
+    .experience-row:not(:last-child)::after {
+        bottom: 15px;
+        left: 5%;
+        right: 5%;
+    }
+
+    .image-box {
+        width: 100%;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: auto;
+        max-width: 220px;
+        border-radius: 12px;
+    }
+
+    .experience-item {
+        gap: 12px;
+    }
+
+    .year {
+        font-size: 13px;
+        min-width: 60px;
+    }
+
+    .details {
+        padding: 16px 18px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 212, 170, 0.05);
+    }
+
+    .details h3 {
+        font-size: 1em;
+        margin-bottom: 6px;
+    }
+
+    .details h3 a::before {
+        font-size: 0.6em;
+        margin-right: 4px;
+    }
+
+    .details h4 {
+        font-size: 0.85em;
+        margin-bottom: 8px;
+    }
+
+    .details p {
+        font-size: 0.85em;
+        line-height: 1.5;
+    }
+
+    .back-home {
+        margin-top: 40px;
+    }
+
+    .back-home .cta-btn {
+        display: block;
+        width: calc(50% - 6px);
+        margin: 8px 3px 0 3px;
     }
 }

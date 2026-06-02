@@ -15,12 +15,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <a href="index.html" title="Go to the Homepage" class="nav-logo-link">
-            <img src="Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble;s Logo" width="50" height="50">
+            <img src="Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble's Logo" width="50" height="50">
             <p class="nav-name">Noble</p>
         </a>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-links">
             <a href="index.html" title="Go to the Homepage" class="nav-btn">Home</a>
-            <a href="aboutme.html " title="Learn more about me" class="nav-btn">About Me</a>
+            <a href="aboutme.html" title="Learn more about me" class="nav-btn">About Me</a>
             <a href="SkillsandProficiencies.html" title="View my skills and proficiencies" class="nav-btn active">Skills and Proficiencies</a>
             <a href="contact.html" title="Get in touch with me" class="nav-btn">Contact</a>
         </div>
@@ -104,6 +109,18 @@
         </div>
     </footer>
     <script>
+        // Hamburger menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('mobile-open');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('mobile-open');
+            });
+        });
+
         // Slide in skill cards on scroll
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
