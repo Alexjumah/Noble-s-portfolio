@@ -241,7 +241,7 @@
     }
     
     .hero-name {
-        font-size: clamp(40px, 15vw, 70px);
+        font-size: clamp(48px, 17vw, 78px);
     }
     
     .hero-desc {
@@ -279,8 +279,8 @@
     }
 
     .hero-name {
-        font-size: clamp(32px, 12vw, 50px);
-        letter-spacing: -2px;
+        font-size: clamp(46px, 18vw, 66px);
+        letter-spacing: -3px;
         margin-bottom: 20px;
     }
 
