@@ -3,16 +3,15 @@
    ============================================ */
 
 :root {
-    --primary: #79fde3;
-    --primary-dark: #04f3ab;
+    --primary: #79f9fd;
+    --primary-dark: #068a8acc;
     --secondary: #0505a5;
-    --accent: #01d46b;
+    --accent: #02ff9e;
     --text-light: #e8e8e8;
     --text-muted: #fffdfd;
     --bg-dark: #092b75;
     --bg-card: rgba(15, 15, 15, 0.03);
     --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    --neon-bright: #00eeff;
 }
 
 * {
@@ -33,7 +32,7 @@ body {
     margin: 0;
     background: var(--bg-dark);
     font-family: 'Poppins', 'Segoe UI', sans-serif;
-    min-height: 100vh;
+    min-height: auto;
     color: var(--text-light);
     overflow-x: hidden;
     position: relative;
@@ -262,7 +261,7 @@ body::after {
 }
 
 .nav-btn.active {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     color: var(--bg-dark);
     border-color: var(--primary);
     font-weight: 600;
@@ -281,7 +280,7 @@ body::after {
 
 .cta-btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     color: var(--bg-dark);
     padding: 14px 35px;
     border: none;
@@ -392,7 +391,7 @@ body::after {
 }
 
 .footer-nav a:hover {
-    color: var(--primary);
+    color: yellow;
     padding-left: 20px;
 }
 
