@@ -79,11 +79,6 @@ body::after {
     50% { transform: translate(-40px, -60px) scale(1.15); }
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes fadeInLeft {
     from { opacity: 0; transform: translateX(-60px); }
     to { opacity: 1; transform: translateX(0); }
@@ -99,11 +94,6 @@ body::after {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
 @keyframes pulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.4); }
     50% { box-shadow: 0 0 0 15px rgba(0, 212, 170, 0); }
@@ -114,7 +104,6 @@ body::after {
     100% { background-position: 200% center; }
 }
 
-/* Animation setup */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -127,7 +116,6 @@ body::after {
         filter: blur(0);
     }
 }
-   /* ===== SLIDE IN DIAGONAL + FLOAT ===== */
 @keyframes slideInDiagonal {
     from {
         opacity: 0;
@@ -153,6 +141,7 @@ body::after {
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 100%;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -216,6 +205,7 @@ body::after {
     display: flex;
     gap: 8px;
     align-items: center;
+    min-width: 0;
 }
 
 /* ===== NAV BUTTONS (valid HTML — no <button> inside <a>) ===== */
@@ -350,23 +340,32 @@ body::after {
 
 .footer-top {
     display: flex;
-    flex-direction: row;           /* Changed: horizontal layout */
-    align-items: flex-end;         /* Changed: align bottoms of columns */
-    justify-content: space-between; /* Changed: left and center positioning */
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
     width: 100%;
-    max-width: 1200px;            /* Added: constrain width for better layout */
+    max-width: 1200px;
     gap: 30px;
     box-sizing: border-box;
 }
 
 .footer-nav {
-    display: flex;                /* Fixed: was display:contents */
+    display: flex;
     flex-direction: column;
     gap: 12px;
-    align-items: flex-start;      /* Changed: left-align items */
+    align-items: flex-start;
     text-align: left;
-    flex: 0 0 auto;               /* Added: don't grow or shrink */
-    min-width: 160px;           /* Prevents layout shift */
+    flex: 0 0 auto;
+    min-width: 160px;
+}
+
+.footer-nav li,
+.footer-links li {
+    list-style: none;
+}
+
+.footer-heading {
+    color: #00f815;
 }
 
 .footer-nav a {
@@ -377,8 +376,8 @@ body::after {
     transition: var(--transition-smooth);
     position: relative;
     padding-left: 0;
-    display: inline-block;        /* Added: ensures padding affects layout */    
-    white-space: nowrap;        /* Prevents text wrapping */
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .footer-nav a::before {
@@ -404,10 +403,10 @@ body::after {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    align-items: center;          /* Centered column */
+    align-items: center;
     padding: 0;
-    flex: 1;                      /* Added: take remaining space */
-    justify-content: flex-end;      /* Added: push content to bottom */
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .footer-links a {
@@ -443,7 +442,7 @@ body::after {
 .footer-text {
     color: var(--text-muted);
     font-size: 13px;
-    text-align: center;           /* Changed: center for full-width footer */
+    text-align: center;
     opacity: 0.7;
     width: 100%;
 }
@@ -522,13 +521,18 @@ body::after {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .footer-top {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
         gap: 25px;
     }
+
     .footer-nav {
         align-items: center;
+        min-width: 0;
     }
+
     .footer-text {
         text-align: center;
     }
@@ -536,19 +540,86 @@ body::after {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 12px 20px;
+        padding: 10px 12px;
         flex-direction: column;
         gap: 10px;
     }
+
+    .nav-logo {
+        width: 44px;
+        height: 44px;
+    }
+
+    .nav-name {
+        font-size: 20px;
+    }
+
     .nav-links {
+        width: 100%;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 6px;
     }
+
     .nav-btn {
-        padding: 8px 16px;
+        flex: 1 1 calc(50% - 6px);
+        min-width: 0;
+        max-width: 220px;
+        padding: 8px 10px;
         font-size: 12px;
+        line-height: 1.25;
+        text-align: center;
+        white-space: normal;
     }
+
     body {
-        padding-top: 120px;
+        padding-top: 150px;
+    }
+
+    .footer {
+        padding: 34px 16px;
+    }
+
+    .footer-top {
+        width: 100%;
+    }
+
+    .footer-nav,
+    .footer-links {
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-nav a,
+    .footer-links a {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .footer-nav a:hover {
+        padding-left: 0;
+    }
+
+    .footer-nav a::before {
+        display: none;
+    }
+
+    .signature {
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 20px;
+    }
+
+    .signature-line {
+        max-width: 220px;
+    }
+
+    .signature p {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.6;
+        letter-spacing: 1px;
     }
 }
