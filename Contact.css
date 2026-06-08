@@ -1,6 +1,84 @@
 /* ============================================
    CONTACT PAGE SPECIFIC STYLES
    ============================================ */
+/* Light mode grid container */
+[data-theme="light"] .grid-container {
+    background: transparent;
+}
+
+/* Light mode side panels */
+[data-theme="light"] .split-left {
+    background: rgba(0, 0, 0, 0.02);
+    border-right: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .split-left:hover,
+[data-theme="light"] .split-right:hover {
+    background: rgba(6, 138, 138, 0.05);
+}
+
+/* Light mode watermark */
+[data-theme="light"] .split-section::before {
+    color: var(--primary);
+    opacity: 0.06;
+}
+
+/* Light mode hero text */
+[data-theme="light"] .hero-tag {
+    color: var(--primary);
+}
+
+[data-theme="light"] .hero-desc {
+    color: var(--text-muted);
+}
+
+/* Light mode name gradient - darker for visibility */
+[data-theme="light"] .name-line {
+    background: linear-gradient(135deg, #1a1a2e 0%, var(--primary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Light mode split section text */
+[data-theme="light"] .split-label {
+    color: var(--primary);
+}
+
+[data-theme="light"] .split-title {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .split-desc {
+    color: var(--text-muted);
+}
+
+[data-theme="light"] .split-link-text {
+    color: var(--primary);
+}
+
+/* Light mode hero showcase */
+[data-theme="light"] .hero-showcase {
+    background: transparent;
+}
+
+/* Light mode split link underline */
+[data-theme="light"] .split-link-text::after {
+    background: var(--accent);
+}
+
+/* Light mode responsive borders */
+@media (max-width: 1024px) {
+    [data-theme="light"] .split-left {
+        border-bottom: 1px solid var(--border-color);
+        border-right: none;
+    }
+    
+    [data-theme="light"] .split-right {
+        border-top: 1px solid var(--border-color);
+        border-left: none;
+    }
+}
 
 .contact-hero {
     display: grid;

@@ -32,6 +32,10 @@
                 <a href="SkillsandProjects.html" title="View my skills and projects" class="nav-btn active">Skills and Projects</a>
                 <a href="contact.html" title="Get in touch with me" class="nav-btn">Contact</a>
             </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-icon sun">☀️</span>
+            </button>
         </nav>
 
         <!-- Skills Section -->
@@ -120,20 +124,56 @@
                 <div class="signature-line"></div>
             </div>
         </footer>
+
         <script>
-            // Hamburger menu toggle
-            document.querySelector('.menu-toggle').addEventListener('click', function() {
-                this.classList.toggle('active');
-                document.querySelector('.nav-links').classList.toggle('mobile-open');
+            // ===== THEME TOGGLE =====
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else if (systemPrefersDark) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
+                setTimeout(() => { themeToggle.style.transform = ''; }, 300);
             });
+            
+            // ===== MOBILE MENU (single registration) =====
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('mobile-open');
+            });
+            
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
-                    document.querySelector('.menu-toggle').classList.remove('active');
-                    document.querySelector('.nav-links').classList.remove('mobile-open');
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
                 });
             });
-
-            // Slide in skill cards on scroll
+            
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('mobile-open')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
+                }
+            });
+            
+            // ===== SKILL CARDS OBSERVER =====
             const skillObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -141,24 +181,11 @@
                         skillObserver.unobserve(entry.target);
                     }
                 });
-            }, { 
-                threshold: 0.15,
-                rootMargin: '0px 0px -50px 0px'
-            });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-            document.querySelectorAll('.skill-card').forEach(card => {
-                skillObserver.observe(card);
-            });
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                const nav = document.querySelector('.nav-links');
-                const toggle = document.querySelector('.menu-toggle');
-                if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('mobile-open')) {
-                    toggle.classList.remove('active');
-                    nav.classList.remove('mobile-open');
-                }
-            });
+            document.querySelectorAll('.skill-card').forEach(card => skillObserver.observe(card));
         </script>
 
     </body>
+    
 </html>

@@ -32,6 +32,10 @@
                 <a href="skillsandprojects.html" title="View my skills and projects" class="nav-btn">Skills and Projects</a>
                 <a href="contact.html" title="Get in touch with me" class="nav-btn">Contact</a>
             </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-icon sun">☀️</span>
+            </button>
         </nav>
 
         <!-- Hero Intro -->
@@ -236,16 +240,51 @@
         </footer>
 
         <script>
+            // ===== THEME TOGGLE =====
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Apply initial theme
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else if (systemPrefersDark) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+            }
+            
+            // Toggle function
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Add a subtle rotation animation on click
+                themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
+                setTimeout(() => {
+                    themeToggle.style.transform = '';
+                }, 300);
+            });
+            
+            // ===== MOBILE MENU =====
             document.querySelector('.menu-toggle').addEventListener('click', function() {
                 this.classList.toggle('active');
                 document.querySelector('.nav-links').classList.toggle('mobile-open');
             });
+            
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     document.querySelector('.menu-toggle').classList.remove('active');
                     document.querySelector('.nav-links').classList.remove('mobile-open');
                 });
             });
+            
             // Close menu when clicking outside
             document.addEventListener('click', function(e) {
                 const nav = document.querySelector('.nav-links');
@@ -253,7 +292,7 @@
                 if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('mobile-open')) {
                     toggle.classList.remove('active');
                     nav.classList.remove('mobile-open');
-                }
+                }  
             });
         </script>
 
