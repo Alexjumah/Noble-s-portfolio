@@ -1,7 +1,100 @@
 /* ============================================
    HOMEPAGE SPECIFIC STYLES
    ============================================ */
-   .hero-showcase {
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+/* ===== THEME SUPPORT FOR EXPERIMENT.CSS ===== */
+
+/* Light mode grid container */
+[data-theme="light"] .grid-container {
+    background: transparent;
+}
+
+/* Light mode side panels */
+[data-theme="light"] .spit-left {
+    background: rgba(0, 0, 0, 0.02);
+    border-right: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .split-left:hover,
+[data-theme="light"] .split-right:hover {
+    background: rgba(6, 138, 138, 0.05);
+}
+
+/* Light mode watermark */
+[data-theme="light"] .split-section::before {
+    color: var(--primary);
+    opacity: 0.06;
+}
+
+/* Light mode hero text */
+[data-theme="light"] .hero-tag {
+    color: var(--primary);
+}
+
+[data-theme="light"] .hero-desc {
+    color: var(--text-muted);
+}
+
+/* Light mode name gradient - darker for visibility */
+[data-theme="light"] .name-line {
+    background: linear-gradient(135deg, #1a1a2e 0%, var(--primary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Light mode split section text */
+[data-theme="light"] .split-label {
+    color: var(--primary);
+}
+
+[data-theme="light"] .split-title {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .split-desc {
+    color: var(--text-muted);
+}
+
+[data-theme="light"] .split-link-text {
+    color: var(--primary);
+}
+
+/* Light mode hero showcase */
+[data-theme="light"] .hero-showcase {
+    background: transparent;
+}
+
+/* Light mode split link underline */
+[data-theme="light"] .split-link-text::after {
+    background: var(--accent);
+}
+
+/* Light mode responsive borders */
+@media (max-width: 1024px) {
+    [data-theme="light"] .split-left {
+        border-bottom: 1px solid var(--border-color);
+        border-right: none;
+    }
+    
+    [data-theme="light"] .split-right {
+        border-top: 1px solid var(--border-color);
+        border-left: none;
+    }
+}
+
+.hero-showcase {
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
@@ -52,12 +145,18 @@
 
 .name-line {
     display: block;
-    background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--primary) 100%);
+    background: linear-gradient(
+        135deg,
+        var(--text-light) 0%,
+        var(--primary) 60%,
+        var(--accent) 100%
+    );
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: shimmer 4s linear infinite;
+    font-size: 15vw;
 }
 
 .hero-desc {
@@ -72,40 +171,9 @@
 }
 
 .hero-desc strong {
-    color: var(--text-light);
-    font-weight: 600;
+    color: var(--primary); 
 }
 
-.cta-scroll {
-    display: inline-block;
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border: 1px solid var(--primary);
-    padding: 14px 35px;
-    border-radius: 50px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: pulse 2s infinite;
-}
-
-.cta-scroll:hover {
-    background: var(--primary);
-    color: var(--bg-dark);
-    box-shadow: 0 0 30px rgba(0, 212, 170, 0.4);
-}
-
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.3); }
-    50% { box-shadow: 0 0 0 15px rgba(0, 212, 170, 0); }
-}
-
-@keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-}
 
 /* ===== SPLIT SECTION ===== */
 .split-section {
@@ -130,18 +198,14 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.split-right,
 .split-left {
-    background: rgba(255, 255, 255, 0.02);
     border-right: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.split-right {
-    background: rgba(255, 255, 255, 0.04);
 }
 
 .split-left:hover,
 .split-right:hover {
-    background: rgba(0, 212, 170, 0.05);
+    background:rgb(62, 62, 63);
 }
 
 .split-label {
@@ -154,6 +218,7 @@
 }
 
 .split-title {
+    font-family: 'Times New Roman', Times, serif;
     font-size: clamp(36px, 6vw, 80px);
     font-weight: 900;
     letter-spacing: -2px;
@@ -187,7 +252,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--primary);
     transition: width 0.3s ease;
 }
 
@@ -199,22 +264,36 @@
 /* Background watermark text */
 .split-left::before,
 .split-right::before {
-    content: '';
     position: absolute;
-    font-size: clamp(150px, 20vw, 300px);
+    font-size: clamp(150px, 18vw, 260px);
     font-weight: 900;
-    opacity: 0.03;
+    opacity: 0.15;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
     pointer-events: none;
-    color: var(--text-light);
+    opacity: 0.5;
+    text-shadow: 0 0 40px rgba(13, 241, 241, 0.438);  /* Glowy halo */
+    -webkit-text-stroke: 1.25px var(--primary);  /* Outline effect */
+    color: transparent;  /* Fill is transparent, only stroke shows */
 }
 
 .split-left::before { content: 'CODE'; }
-.split-right::before { content: 'LIFE'; }
+.split-right::before { content: 'LIFE';}
 
+.split-left:hover::before {
+    transform: translate(-50%, -50%) rotate(-3deg) scale(1.05);
+    opacity: 0.3;  /* More visible on hover */
+    text-shadow: 0 0 40px rgba(4, 175, 175, 0.438);  /* Glowy halo */
+    -webkit-text-stroke: 1.5px var(--primary);  /* Outline effect */
+}
+.split-right:hover::before {
+    transform: translate(-55%, -50%) rotate(-3deg) scale(1.1);
+    opacity: 0.3;  /* More visible on hover */
+    text-shadow: 0 0 40px rgba(4, 175, 175, 0.438);  /* Glowy halo */
+    -webkit-text-stroke: 1.5px var(--primary);  /* Outline effect */
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .split-section {

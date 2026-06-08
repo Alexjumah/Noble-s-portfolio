@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, #0d1f2d 0%, #1a3a4a 50%, #0d1f2d 100%);
     position: relative;
     overflow: hidden;
     margin-top: -80px;
@@ -20,7 +19,6 @@
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 212, 170, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -61,7 +59,6 @@
 
 .hero-btn:hover {
     background: var(--primary);
-    color: var(--bg-dark);
     box-shadow: 0 0 25px rgba(0, 212, 170, 0.5);
     transform: translateY(-3px);
 }
@@ -71,7 +68,6 @@
     padding: 80px 10%;
     position: relative;
     z-index: 1;
-    background-color: rgb(5, 5, 126);
 }
 
 .education-section .section-title {
@@ -110,7 +106,7 @@
 }
 
 .card-header {
-    color:rgb(0, 0, 0);
+    color:var(--bg-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -194,10 +190,10 @@
 
 /* Hover: lime background and border glow */
 .subject-item:hover {
-    background: rgba(162, 238, 132, 0.15);        /* Lime tint */
-    border-color: var(--accent);                   /* Your lime accent color */
+    background: rgba(0, 183, 255, 0.363);      /* Brighter background */
+    border-color: var(--primaryaccent);                   /* Brighter border */
     box-shadow: 0 0 15px rgba(162, 238, 132, 0.3), 
-                inset 0 0 10px rgba(162, 238, 132, 0.05);
+    inset 0 0 10px rgba(162, 238, 132, 0.05);
     transform: translateX(5px);
 } 
 
@@ -211,9 +207,9 @@
     transition: all 0.3s ease;
 }
 .grade-badge:hover {
-    background: var(--accent);
+    background: var(--primary);
     color: var(--bg-dark);
-    box-shadow: 0 0 15px rgba(162, 238, 132, 0.8);
+    box-shadow: 0 0 15px rgba(0, 236, 253, 0.8);
     transform: scale(1.15);
 }
 /* ===== EXPERIENCE ===== */

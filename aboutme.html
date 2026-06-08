@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     </head>
+
     <body>
 
         <!-- Navigation -->
@@ -26,38 +28,44 @@
             <div class="nav-links">
                 <a href="index.html" title="Go to the Homepage" class="nav-btn">Home</a>
                 <a href="aboutme.html" title="Learn more about me" class="nav-btn active">About Me</a>
-                <a href="SkillsandProficiencies.html" title="View my skills and proficiencies" class="nav-btn">Skills and Proficiencies</a>
+                <a href="skillsandprojects.html" title="View my skills and projects" class="nav-btn">Skills and Projects</a>
                 <a href="contact.html" title="Get in touch with me" class="nav-btn">Contact</a>
             </div>
         </nav>
 
         <!-- About Hero -->
         <section class="about-hero">
-            <div class="text-container">
+            <header class="text-container">
                 <h2><em>About Me</em></h2>
-                <p>Hi! I'm Noble Jumah, a passionate Computer Science student dedicated to building innovative solutions that make a real impact. With a strong foundation in programming and problem-solving, I specialize in creating web applications and software that users love to interact with.</p>
-                <p>My journey in tech has been driven by curiosity and a desire to transform ideas into reality. I believe in writing clean, efficient code and continuously learning new technologies to stay at the forefront of the industry. When I'm not coding, you can find me exploring new frameworks, contributing to open-source projects, or mentoring fellow developers.</p>
+                <p>Hi! I'm Noble Jumah, a passionate Computer Science student dedicated to building innovative solutions that make a real impact. 
+                    With a strong foundation in programming and problem-solving, 
+                    I specialize in creating web applications and software that users love to interact with.</p>
+                <p>My journey in tech has been driven by curiosity and a desire to transform ideas into reality. 
+                    I believe in writing clean, efficient code and continuously learning new technologies to stay at the forefront of the industry. 
+                    When I'm not coding, you can find me exploring new frameworks, 
+                    contributing to open-source projects, or mentoring fellow developers.</p>
                 <p>Let's collaborate and create something extraordinary together!</p>
                 <div class="btn-group">
                     <a href="extras.html " title="Read more about my journey" class="cta-btn">Read More</a>
-                    <a href="SkillsandProficiencies.html" title="View my skills and proficiencies" class="cta-btn">My Skills</a>
+                    <a href="SkillsandProjects.html" title="View my skills and projects" class="cta-btn">My Skills</a>
                     <a href="index.html" title="Go back to the Homepage" class="cta-btn">Back to Home</a>
                 </div>
-            </div>
-            <div class="image-container card-gallery" id="cardGallery">
-                <div class="card-stack">
+            </header>
+
+            <figure class="image-container card-gallery" id="cardGallery">
+                <figure class="card-stack">
                     <img src="Pics/IMG-20260502-WA0018.jpg" alt="Noble - Photo 1" class="gallery-card active" data-index="0">
                     <img src="Pics/IMG-20260502-WA0012.jpg" alt="Noble - Photo 2" class="gallery-card" data-index="1">
                     <img src="Pics/IMG-20260502-WA0017.jpg" alt="Noble - Photo 3" class="gallery-card" data-index="2">
                     <img src="Pics/IMG-20260502-WA0016.jpg" alt="Noble - Photo 4" class="gallery-card" data-index="3">
-                </div>
+                </figure>
                 <div class="card-indicator">
                     <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </div>
-            </div>
+            </figure>
         </section>
 
         <!-- Footer -->
@@ -67,14 +75,17 @@
                     <span class="footer-heading"><i>Menu</i></span>
                     <a href="index.html" title="Go to the Homepage">Home</a>
                     <a href="aboutme.html" title="Learn more about me">About Me</a>
-                    <a href="SkillsandProficiencies.html" title="View my skills and proficiencies">Skills and Proficiencies</a>
+                    <a href="SkillsandProjects.html" title="View my skills and projects">Skills and Projects</a>
                     <a href="contact.html" title="Get in touch with me">Contact</a>
                 </div>
                 <div class="footer-links">
                     <span class="footer-heading"><i>Socials</i></span>
-                    <a href="https://www.instagram.com/alexxjumah/" target="_blank" rel="noopener" title="Go to my Instagram profile">Instagram</a>
-                    <a href="https://www.linkedin.com/in/noble-odwallo-7053393b3/" target="_blank" rel="noopener" title="Go to my LinkedIn profile">LinkedIn</a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nobleodwallo@gmail.com&su=Hello" target="_blank" rel="noopener" title="Send me an email via Gmail">Email</a>
+                    <a href="https://www.instagram.com/alexxjumah/" target="_blank" 
+                        rel="noopener" title="Go to my Instagram profile">Instagram</a>
+                    <a href="https://www.linkedin.com/in/noble-odwallo-7053393b3/" target="_blank" 
+                        rel="noopener" title="Go to my LinkedIn profile">LinkedIn</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nobleodwallo@gmail.com&su=Hello" target="_blank" 
+                        rel="noopener" title="Send me an email via Gmail">Email</a>
                 </div>
             </div>
             <div class="signature">
@@ -83,6 +94,7 @@
                 <div class="signature-line"></div>
             </div>
         </footer>
+
         <script>
             // Hamburger menu toggle
             document.querySelector('.menu-toggle').addEventListener('click', function() {
@@ -95,7 +107,6 @@
                     document.querySelector('.nav-links').classList.remove('mobile-open');
                 });
             });
-
             document.addEventListener('DOMContentLoaded', function() {
                 const gallery = document.getElementById('cardGallery');
                 const stack = gallery.querySelector('.card-stack');
@@ -137,6 +148,17 @@
                     });
                 });
             });
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('.nav-links');
+                const toggle = document.querySelector('.menu-toggle');
+                if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('mobile-open')) {
+                    toggle.classList.remove('active');
+                    nav.classList.remove('mobile-open');
+                }
+            });
         </script>
+
     </body>
+
 </html>
