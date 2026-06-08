@@ -1,6 +1,34 @@
 /* ============================================
    ABOUT ME PAGE SPECIFIC STYLES
    ============================================ */
+/* ===== THEME SUPPORT FOR EXPERIMENT.CSS ===== */
+
+/* Light mode grid container */
+[data-theme="light"] .grid-container {
+    background: transparent;
+}
+
+/* Light mode hero text */
+[data-theme="light"] .hero-tag {
+    color: var(--primary);
+}
+
+[data-theme="light"] .hero-desc {
+    color: var(--text-muted);
+}
+
+/* Light mode name gradient - darker for visibility */
+[data-theme="light"] .name-line {
+    background: linear-gradient(135deg, #1a1a2e 0%, var(--primary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Light mode hero showcase */
+[data-theme="light"] .hero-showcase {
+    background: transparent;
+}
 
 .about-hero {
     display: flex;
