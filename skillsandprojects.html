@@ -77,21 +77,49 @@
                         I enjoy collaborating on projects and finding creative solutions.</p>
                 </div>
             </article>
+
             <h1 class="section-title">Projects</h1>
-            <!-- Calculator Embed -->
-            <article class="calculator-embed">
-                <h2 class="embed-title">Try My Calculator</h2>
-                <div class="iframe-wrapper">
-                    <iframe src="Calculator/calculator.html" 
-                            title="Noble's Calculator" 
-                            width="340" 
-                            height="520" 
-                            frameborder="0"
-                            loading="lazy"
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </article>
+            <!-- Project Embeds -->
+            <section class="projects-section">
+                <!-- Calculator Embed -->
+                <article class="calculator-embed">
+                    <h2 class="embed-title">Try My Calculator</h2>
+                    <div class="iframe-wrapper">
+                        <iframe src="Calculator/calculator.html" 
+                                title="Noble's Calculator" 
+                                width="340" 
+                                height="520" 
+                                frameborder="0"
+                                loading="lazy"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </article>
+
+                <p class="project-description">This is a simple calculator I built using HTML, CSS, and JavaScript. 
+                    Feel free to try it out!
+                </p>
+            </section>
+
+            <section class="projects-section">
+                <!-- TO-DO LIST SECTION -->
+                <p class="project-description">This is a simple to-do list I built using HTML, CSS, and JavaScript. 
+                    Feel free to use it!
+                </p>
+                
+                <article class="calculator-embed">
+                    <h2 class="embed-title">Task Manager</h2>                    
+                    <div class="iframe-container">
+                        <iframe src="Todolist/todolist.html" 
+                                title="To-Do List" 
+                                width="100%" 
+                                height="600" 
+                                frameborder="0"
+                                scrolling="no">
+                        </iframe>
+                    </div>
+                </article>
+            </section>
             <div class="btn-center">
                 <a href="aboutme.html " title="Go back to the About Me section" class="cta-btn">Back to About</a>
                 <a href="contact.html" title="Get in touch with me" class="cta-btn">Contact Me</a>
@@ -184,6 +212,15 @@
             }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
             document.querySelectorAll('.skill-card').forEach(card => skillObserver.observe(card));
+
+            // Receive height from iframe
+            window.addEventListener('message', (e) => {
+                if (e.data.type === 'resize') {
+                    const iframe = document.querySelector('.iframe-container iframe');
+                    if (iframe) iframe.style.height = e.data.height + 'px';
+                }
+            });
+
         </script>
 
     </body>

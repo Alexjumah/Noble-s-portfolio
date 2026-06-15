@@ -181,11 +181,13 @@
 
 /* Update CTA button for light mode */
 [data-theme="light"] .cta-btn {
-    box-shadow: 0 10px 30px var(--shadow-color), 0 0 0 0 var(--shadow-color);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 [data-theme="light"] .cta-btn:hover {
-    box-shadow: 0 15px 40px var(--shadow-color), 0 0 30px var(--shadow-color);
+    box-shadow: 0 15px 40px var(--shadow-color);
 }
 
 /* Update orb colors for light mode */
@@ -197,16 +199,7 @@
     background: radial-gradient(circle, rgba(0, 204, 122, 0.06) 0%, transparent 70%);
 }
 
-/* Update hero desc strong for light mode */
-[data-theme="light"] .hero-desc strong {
-    color: var(--text-light);
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-/* Add to light mode section in global.css */
+/* Update selection color for light mode */
 [data-theme="light"] .cta-scroll,
 [data-theme="light"] .cta-btn {
     animation: pulseLight 2s infinite;

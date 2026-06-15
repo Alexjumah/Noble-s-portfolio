@@ -144,32 +144,51 @@
 .skill-card.visible:nth-child(3) { transition-delay: 0.3s; animation-delay: 1s; }
 .skill-card.visible:nth-child(4) { transition-delay: 0.45s; animation-delay: 1.5s; }
 
-/* ===== CALCULATOR EMBED ===== */
-.calculator-embed {
-    margin-top: 15px;
-    text-align: center;
-    position: relative;
-    background: rgba(26, 26, 46, 0);
-    padding: 20px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: none;
-    border: 1px solid rgba(0, 212, 170, 0.438);
+.projects-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+.iframe-container {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 212, 170, 0.2);
+    transition: var(--transition-smooth);
 }
 
-.calculator-embed::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    border-radius: 2px;
+.iframe-container:hover {
+    animation: calculatorHover 1.8s ease-in-out infinite;
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.75), 0 0 85px rgba(0, 212, 170, 0.747), 0 0 20px rgba(4, 255, 130, 0.25);
+}
+
+.iframe-container iframe {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+.project-description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1em;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+.calculator-embed {
+    position: relative;
+    margin: 15px auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 170, 0.438);
 }
 
 .embed-title {
@@ -196,30 +215,23 @@
 
 .iframe-wrapper {
     display: inline-block;
-    position: relative;
+    max-width: 600px;
     border-radius: 24px;
     padding: 4px;
     background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
-    box-shadow: 
-        0 25px 80px rgba(0, 0, 0, 0.6),
-        0 0 60px rgba(0, 212, 170, 0.2);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 212, 170, 0.2);
     transition: var(--transition-smooth);
-    will-change: transform;
 }
 
 .iframe-wrapper:hover {
     animation: calculatorHover 1.8s ease-in-out infinite;
-    box-shadow: 
-        0 35px 100px rgba(0, 0, 0, 0.75),
-        0 0 85px rgba(0, 212, 170, 0.747),
-        0 0 20px rgba(4, 255, 130, 0.25);
+    box-shadow: 0 35px 100px rgba(0, 0, 0, 0.75), 0 0 85px rgba(0, 212, 170, 0.747), 0 0 20px rgba(4, 255, 130, 0.25);
 }
 
 .iframe-wrapper iframe {
     display: block;
+    width: 100%;
     border-radius: 20px;
-    background: var(--secondarybg-dark);
-    max-width: 100%;
 }
 
 @keyframes calculatorHover {
@@ -248,6 +260,40 @@
     .skill-card {
         border-radius: 28px;
         padding: 50px 22px;
+    }
+
+    .projects-section {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .calculator-embed,
+    .iframe-container,
+    .iframe-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .iframe-wrapper iframe,
+    .iframe-container iframe {
+        height: 500px;
+    }
+
+    .project-description {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+
+    .btn-center {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .btn-center .cta-btn {
+        width: 100%;
+        margin: 0;
     }
 }
 
@@ -319,8 +365,8 @@
         padding: 3px;
     }
 
-    .iframe-wrapper iframe {
-        width: 100%;
+    .iframe-wrapper iframe,
+    .iframe-container iframe {
         height: 400px;
     }
 
