@@ -51,7 +51,7 @@
                 <p>Let's collaborate and create something extraordinary together!	&#128513;</p>
                 <div class="btn-group">
                     <a href="extras.html " title="Read more about my journey" class="cta-btn">Read More</a>
-                    <a href="SkillsandProjects.html" title="View my skills and projects" class="cta-btn">My Skills</a>
+                    <a href="skillsandprojects.html" title="View my skills and projects" class="cta-btn">My Skills</a>
                     <a href="index.html" title="Go back to the Homepage" class="cta-btn">Back to Home</a>
                 </div>
             </header>
@@ -79,7 +79,7 @@
                     <span class="footer-heading"><i>Menu</i></span>
                     <a href="index.html" title="Go to the Homepage">Home</a>
                     <a href="aboutme.html" title="Learn more about me">About Me</a>
-                    <a href="SkillsandProjects.html" title="View my skills and projects">Skills and Projects</a>
+                    <a href="skillsandprojects.html" title="View my skills and projects">Skills and Projects</a>
                     <a href="contact.html" title="Get in touch with me">Contact</a>
                 </div>
                 <div class="footer-links">
@@ -99,82 +99,82 @@
             </div>
         </footer>
 
-<script>
-    // ===== THEME TOGGLE =====
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme) {
-        html.setAttribute('data-theme', savedTheme);
-    } else if (systemPrefersDark) {
-        html.setAttribute('data-theme', 'dark');
-    } else {
-        html.setAttribute('data-theme', 'light');
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
-        setTimeout(() => { themeToggle.style.transform = ''; }, 300);
-    });
-    
-    // ===== MOBILE MENU (single registration) =====
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('mobile-open');
-    });
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('mobile-open');
-        });
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('mobile-open')) {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('mobile-open');
-        }
-    });
-    
-    // ===== GALLERY (wrapped in DOMContentLoaded) =====
-    document.addEventListener('DOMContentLoaded', function() {
-        const gallery = document.getElementById('cardGallery');
-        if (!gallery) return;
-        
-        const stack = gallery.querySelector('.card-stack');
-        const dots = gallery.querySelectorAll('.dot');
-
-        gallery.addEventListener('click', function() {
-            const cards = stack.querySelectorAll('.gallery-card');
-            const activeCard = cards[0];
-            stack.appendChild(activeCard);
-            const newIndex = parseInt(cards[1].dataset.index);
-            dots.forEach((dot, i) => dot.classList.toggle('active', i === newIndex));
-        });
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const cards = Array.from(stack.querySelectorAll('.gallery-card'));
-                const currentFirst = parseInt(cards[0].dataset.index);
-                const diff = (index - currentFirst + cards.length) % cards.length;
-                for (let i = 0; i < diff; i++) stack.appendChild(cards[i]);
-                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        <script>
+            // ===== THEME TOGGLE =====
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else if (systemPrefersDark) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
+                setTimeout(() => { themeToggle.style.transform = ''; }, 300);
             });
-        });
-    });
-</script>
+            
+            // ===== MOBILE MENU (single registration) =====
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('mobile-open');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
+                });
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('mobile-open')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('mobile-open');
+                }
+            });
+            
+            // ===== GALLERY (wrapped in DOMContentLoaded) =====
+            document.addEventListener('DOMContentLoaded', function() {
+                const gallery = document.getElementById('cardGallery');
+                if (!gallery) return;
+                
+                const stack = gallery.querySelector('.card-stack');
+                const dots = gallery.querySelectorAll('.dot');
+
+                gallery.addEventListener('click', function() {
+                    const cards = stack.querySelectorAll('.gallery-card');
+                    const activeCard = cards[0];
+                    stack.appendChild(activeCard);
+                    const newIndex = parseInt(cards[1].dataset.index);
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === newIndex));
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const cards = Array.from(stack.querySelectorAll('.gallery-card'));
+                        const currentFirst = parseInt(cards[0].dataset.index);
+                        const diff = (index - currentFirst + cards.length) % cards.length;
+                        for (let i = 0; i < diff; i++) stack.appendChild(cards[i]);
+                        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                    });
+                });
+            });
+        </script>
 
     </body>
 
