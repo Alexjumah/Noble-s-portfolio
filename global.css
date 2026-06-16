@@ -219,7 +219,7 @@ body {
     padding-right: 0;
     margin: 0;
     background: var(--bg-dark);
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-family: "Poppins", "Montserrat", sans-serif;
     min-height: auto;
     color: var(--text-light);
     overflow-x: hidden;
