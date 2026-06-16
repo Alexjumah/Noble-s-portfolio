@@ -152,6 +152,50 @@
     margin: 0 auto;
     align-items: center;
 }
+.glowing-separator {
+    width: 80%;
+    max-width: 800px;
+    height: 2px;
+    margin: 60px auto;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--accent) 20%,
+        var(--primary) 50%,
+        var(--accent) 80%,
+        transparent 100%
+    );
+    border-radius: 2px;
+    box-shadow: 
+        0 0 10px var(--accent),
+        0 0 30px var(--accent),
+        0 0 60px rgba(0, 212, 170, 0.4),
+        0 0 100px rgba(0, 212, 170, 0.2);
+    position: relative;
+}
+
+/* Optional animated pulse */
+.glowing-separator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: separatorPulse 3s ease-in-out infinite;
+}
+
+@keyframes separatorPulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
 .iframe-container {
     max-width: 100%;
     margin: 0 auto;

@@ -82,8 +82,8 @@
 .card-gallery {
     position: relative;
     width: 420px;
-    height: 520px;
-    perspective: 1000px;
+    height: 480px;
+    perspective: 700px;
     cursor: pointer;
     animation: fadeInRight 1.2s ease-out 0.5s both;
 }
@@ -100,7 +100,7 @@
     top: 0;
     left: 0;
     width: 370px;
-    height: 520px;
+    height: 480px;
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid rgb(3, 209, 245);
