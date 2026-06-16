@@ -36,7 +36,7 @@
     justify-content: center;
     min-height: calc(100vh - 80px);
     gap: 80px;
-    padding: 40px 60px;
+    padding-top: 4%;
     position: relative;
     z-index: 1;
 }
@@ -330,10 +330,13 @@
     }
 
     .btn-group {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 40px;
+    flex-wrap: wrap;
+}
 
     .btn-group .cta-btn {
         width: 100%;
