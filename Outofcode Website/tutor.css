@@ -1,0 +1,62 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+/* Dark mode hero tagline */
+[data-theme="dark"] .hero-tagline {
+    color: var(--accent);
+}
+/* Dark mode hero text */
+[data-theme="dark"] .hero-title {
+    color: var(--accent);
+}
+/* Dark mode hero text */
+[data-theme="dark"] .hero-subtitle {
+    color: var(--accent);
+}
+
+
+/* ===== HERO INTRO ===== */
+.hero-intro {
+    font-size: 1.5rem;
+    padding: 10%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: url(Pics/tutoring.avif) no-repeat center center fixed;
+
+}
+
+.hero-intro::before {
+    content: '';
+    position: absolute;
+    height: 600px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-intro-content {
+    animation: fadeInUp 1.2s ease-out;
+    z-index: 1;
+    position: relative;
+}
+
+.hero-tagline {
+    font-size: 1em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about-me {
+    padding: 50px 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}

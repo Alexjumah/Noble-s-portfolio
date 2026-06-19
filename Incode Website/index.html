@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Noble Odwallo">
+        <meta name="description" content="Personal website of Noble Odwallo, a Computer Science student">
+        <title>Home — Noble Odwallo</title>
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="icon" type="image/x-icon" href="Pics/IMG-20260506-WA0001.jpg">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo-link">
+                <img src="Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble's Logo" width="50" height="50">
+                <p class="nav-name">Noble</p>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html" title="Go to the Homepage" class="nav-btn active">Home</a>
+                <a href="aboutme.html" title="Learn more about me" class="nav-btn">About Me</a>
+                <a href="skillsandprojects.html" title="View my skills and projects" class="nav-btn">Skills and Projects</a>
+                <a href="contact.html" title="Get in touch with me" class="nav-btn">Contact</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <span class="theme-icon moon">🌙</span>
+                <span class="theme-icon sun">☀️</span>
+            </button>
+        </nav>
+
+        <!-- Hero -->
+        <header class="hero-showcase">
+            <div class="hero-content">
+                <h1 class="hero-name">
+                    <span class="name-line">NOBLE</span>
+                    <span class="name-line">ODWALLO</span>
+                </h1>
+                <p class="hero-desc">
+                    <strong>Frontend </strong> developer building interactive <strong> web apps </strong> with
+                    <strong><abbr title="Hypertext Markup Language">HTML</abbr> , <abbr title="Cascading Style Sheets">CSS</abbr></strong>
+                     and <strong><abbr title="JavaScript">JS</abbr></strong> .
+                </p>
+            </div>
+        </header>
+
+        <!-- IN CODE / BEYOND CODE SPLIT -->
+        <article class="split-section">
+            <a href="skillsandprojects.html" class="split-left">
+                <div class="split-label">IN</div>
+                <h2 class="split-title">CODE</h2>
+                <p class="split-desc">Web development, problem-solving, and building software that makes an impact.</p>
+                <span class="split-link">See Skills and projects →</span>
+            </a>
+            <a href="extras.html" class="split-right">
+                <div class="split-label">BEYOND</div>
+                <h2 class="split-title">CODE</h2>
+                <p class="split-desc">Chess Coach, Tutor, Music Teacher and more.</p>
+                <span class="split-link">See Experience →</span>
+            </a>
+        </article>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="footer-nav">
+                    <span class="footer-heading"><i>Menu</i></span>
+                    <a href="index.html" title="Go back to the Homepage">Home</a>
+                    <a href="aboutme.html" title="Learn more about me">About Me</a>
+                    <a href="skillsandprojects.html" title="View my skills and projects">Skills and Projects</a>
+                    <a href="contact.html" title="Get in touch with me">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <span class="footer-heading"><i>Socials</i></span>
+                    <a href="https://www.instagram.com/alexxjumah/" target="_blank" 
+                        rel="noopener" title="Go to my Instagram profile">Instagram</a>
+                    <a href="https://www.linkedin.com/in/noble-odwallo-7053393b3/" target="_blank" 
+                        rel="noopener" title="Go to my LinkedIn profile">LinkedIn</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nobleodwallo@gmail.com&su=Hello" target="_blank" 
+                        rel="noopener" title="Send me an email via Gmail">Email</a>
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-line"></div>
+                <p>&copy; 2024-2026 Noble Odwallo. All rights reserved.</p>
+                <div class="signature-line"></div>
+            </div>
+        </footer>
+
+        <script>
+            // ===== THEME TOGGLE =====
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            
+            // Check for saved preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Apply initial theme
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else if (systemPrefersDark) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+            }
+            
+            // Toggle function
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Add a subtle rotation animation on click
+                themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
+                setTimeout(() => {
+                    themeToggle.style.transform = '';
+                }, 300);
+            });
+            
+            // ===== MOBILE MENU =====
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+                this.classList.toggle('active');
+                document.querySelector('.nav-links').classList.toggle('mobile-open');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.querySelector('.menu-toggle').classList.remove('active');
+                    document.querySelector('.nav-links').classList.remove('mobile-open');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('.nav-links');
+                const toggle = document.querySelector('.menu-toggle');
+                if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('mobile-open')) {
+                    toggle.classList.remove('active');
+                    nav.classList.remove('mobile-open');
+                }
+            });         
+        </script>
+
+    </body>
+
+</html>
