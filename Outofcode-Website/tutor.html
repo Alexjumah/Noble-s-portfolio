@@ -8,9 +8,9 @@
         <meta name="author" content="Noble Odwallo">
         <meta name="description" content="Personal website of Noble Odwallo, a Computer Science student">
         <title>Tutoring — Noble Odwallo</title>
-        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="/Incode-Website/global.css">
         <link rel="stylesheet" href="tutor.css">
-        <link rel="icon" type="image/x-icon" href="Pics/IMG-20260506-WA0001.jpg">
+        <link rel="icon" type="image/x-icon" href="/Incode-Website/Pics/IMG-20260506-WA0001.jpg">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     </head>
@@ -18,7 +18,7 @@
         <!-- Navigation -->
         <nav class="navbar">
             <a href="index.html" class="nav-logo-link">
-                <img src="Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble's Logo" width="50" height="50">
+                <img src="/Incode-Website/Pics/IMG-20260506-WA0001.jpg" class="nav-logo" alt="Noble's Logo" width="50" height="50">
                 <p class="nav-name">Noble</p>
             </a>
             <button class="menu-toggle" aria-label="Toggle navigation menu">
@@ -93,61 +93,6 @@
             </div>
         </footer>
 
-        <script>
-            // ===== THEME TOGGLE =====
-            const themeToggle = document.getElementById('themeToggle');
-            const html = document.documentElement;
-            
-            // Check for saved preference or system preference
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            // Apply initial theme
-            if (savedTheme) {
-                html.setAttribute('data-theme', savedTheme);
-            } else if (systemPrefersDark) {
-                html.setAttribute('data-theme', 'dark');
-            } else {
-                html.setAttribute('data-theme', 'light');
-            }
-            
-            // Toggle function
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                html.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                
-                // Add a subtle rotation animation on click
-                themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
-                setTimeout(() => {
-                    themeToggle.style.transform = '';
-                }, 300);
-            });
-            
-            // ===== MOBILE MENU =====
-            document.querySelector('.menu-toggle').addEventListener('click', function() {
-                this.classList.toggle('active');
-                document.querySelector('.nav-links').classList.toggle('mobile-open');
-            });
-            
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    document.querySelector('.menu-toggle').classList.remove('active');
-                    document.querySelector('.nav-links').classList.remove('mobile-open');
-                });
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                const nav = document.querySelector('.nav-links');
-                const toggle = document.querySelector('.menu-toggle');
-                if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('mobile-open')) {
-                    toggle.classList.remove('active');
-                    nav.classList.remove('mobile-open');
-                }  
-            });
-        </script>     
+        <script src="/Incode-Website/global.js"></script>     
     </body>
 </html>
